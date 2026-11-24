@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshMart — Supermarket Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">Belanja lebih mudah, segar setiap hari ✨ <span>Gratis ongkir untuk belanja di atas Rp150.000</span></div>
+  <header class="header">
+    <a class="brand" href="#"><span class="brand-mark">F</span><span>fresh<span class="brand-green">mart</span><small>GROCERIES & MORE</small></span></a>
+    <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari produk, kategori, atau merek..."><kbd>⌘ K</kbd></div>
+    <div class="header-actions"><button class="icon-btn" id="accountBtn" aria-label="Akun">♙</button><button class="cart-btn" id="cartToggle">🛒 <span>Keranjang</span><b id="cartCount">0</b></button></div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy"><div class="eyebrow">FRESH PICKS FOR YOU</div><h1>Belanja kebutuhan<br><em>lebih menyenangkan.</em></h1><p>Produk pilihan berkualitas untuk menemani hari-harimu. Segar, lengkap, dan praktis.</p><button class="primary-btn" id="shopNow">Belanja sekarang <span>→</span></button><div class="hero-trust"><span>✓ Produk pilihan</span><span>✓ Harga bersahabat</span><span>✓ Belanja praktis</span></div></div>
+      <div class="hero-art"><div class="hero-circle"></div><div class="hero-emoji">🥑🍊🥬</div><div class="floating-card"><b>Fresh everyday</b><small>Dipilih dengan kualitas terbaik</small></div><div class="hero-sticker">GOOD<br>FOOD<br><span>GOOD MOOD</span></div></div>
+    </section>
+    <section class="benefits"><div><span>🚚</span><p><b>Pengiriman praktis</b><small>Pesanan sampai ke rumah</small></p></div><div><span>🥬</span><p><b>Produk berkualitas</b><small>Pilihan untuk kebutuhanmu</small></p></div><div><span>💳</span><p><b>Pembayaran mudah</b><small>Proses belanja sederhana</small></p></div><div><span>💬</span><p><b>Asisten belanja</b><small>Chatbot siap membantu</small></p></div></section>
+    <section class="catalog" id="catalog">
+      <div class="section-heading"><div><div class="eyebrow">OUR COLLECTION</div><h2>Temukan kebutuhanmu</h2><p>Pilih produk favoritmu dari berbagai kategori.</p></div><div class="result-count" id="resultCount"></div></div>
+      <div class="filters"><div class="category-list" id="categoryList"></div><select id="sortSelect" aria-label="Urutkan produk"><option value="featured">Paling relevan</option><option value="low">Harga terendah</option><option value="high">Harga tertinggi</option><option value="name">Nama A–Z</option></select></div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state hidden" id="emptyState">Produk tidak ditemukan. Coba kata kunci lain.</div>
+    </section>
+    <section class="newsletter"><div><div class="eyebrow">STAY IN THE LOOP</div><h2>Inspirasi belanja, langsung di inbox.</h2><p>Dapatkan informasi produk dan promo terbaru dari FreshMart.</p></div><form id="newsletterForm"><input type="email" placeholder="Alamat email kamu" required><button class="primary-btn">Daftar <span>→</span></button></form></section>
+  </main>
+  <footer><a class="brand" href="#"><span class="brand-mark">F</span><span>fresh<span class="brand-green">mart</span><small>GROCERIES & MORE</small></span></a><p>© 2026 FreshMart. Demo website supermarket.</p><span>Fresh choices, happier days.</span></footer>
+
+  <button class="chat-launcher" id="chatLauncher" aria-label="Buka chatbot"><span>✦</span><i></i></button>
+  <section class="chat-panel" id="chatPanel" aria-label="Asisten FreshMart">
+    <div class="chat-head"><div class="bot-avatar">✦</div><div><b>FreshBot</b><small><i></i> Asisten belanja online</small></div><button id="chatClose" aria-label="Tutup chatbot">×</button></div>
+    <div class="chat-body" id="chatBody"><div class="bot-message">Halo! 👋 Aku FreshBot. Aku bisa bantu cek daftar produk, harga, kategori, dan stok yang tersedia di FreshMart. Mau cari apa hari ini?</div><div class="quick-prompts"><button data-prompt="Tampilkan semua produk">Semua produk</button><button data-prompt="Produk apa yang tersedia?">Produk tersedia</button><button data-prompt="Produk kategori minuman">Kategori minuman</button><button data-prompt="Produk yang murah">Produk termurah</button></div></div>
+    <form class="chat-input" id="chatForm"><input id="chatInput" autocomplete="off" placeholder="Tanya tentang produk..." aria-label="Pesan untuk chatbot"><button aria-label="Kirim pesan">➤</button></form>
+    <div class="chat-foot">FreshBot menggunakan katalog produk demo.</div>
+  </section>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer"><div class="drawer-head"><div><div class="eyebrow">YOUR SELECTION</div><h2>Keranjang</h2></div><button id="cartClose">×</button></div><div id="cartItems" class="cart-items"><div class="cart-empty">Keranjangmu masih kosong 🛒</div></div><div class="cart-summary"><div><span>Subtotal</span><b id="cartSubtotal">Rp0</b></div><small>Biaya pengiriman dihitung saat checkout.</small><button id="checkoutBtn" class="primary-btn" disabled>Checkout <span>→</span></button></div></aside>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
